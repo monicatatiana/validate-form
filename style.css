@@ -1,0 +1,11 @@
+.bg-gris {
+    background-color: rgba(145, 212, 207, 0.952); 
+    padding: 2px;
+}
+
+.botn {
+    background-color: gray;
+    padding: 2px;
+    border-color: gray;
+}
+

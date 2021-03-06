@@ -1,112 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/315133feff.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Formulario</title>
 </head>
 
 <body>
-     <!-- CONTENEDOR DEL FORMULARIO -->
-    <div class="container-fluid" id="formulario">
-       
-        <!-- PRIMER ROW -->
-        <div class="row">
-            <div class="col-md-6 container"> 
-                <div class="card-header d-flex">
-                    <h1>Payment for example</h1>
-                </div>
-                <div class="alert alert-danger mt-3" role="alert">
-                    fill the payment form
-                </div>
-        <!-- SEGUNDO ROW -->
-                <form class="row g-3">
-                    <div class="col-md-4">
-                        <label for="inputEmail4" class="form-label">Card #</label>
-                        <input type="number" class="form-control" id="inputEmail4" name="card" placeholder="xxxxxxxxxxxx">
+
+    <div class="row justify-content-center mt-5 ">
+        <div class="col-md-6">
+            <div class="card body">
+                <form class="row g-3 needs-validation" id="form" onsubmit="Validate()">
+                    <div class="card-header bg-light text-black">
+                        <h1>Payment Form Example</h1>
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputPassword4" class="form-label">CVC#</label>
-                        <input type="password" class="form-control" id="inputPassword4" name="cvc" placeholder="0000">
+
+                    <!-- Primera linea -->
+
+                    <div class="col-md-4 position-relative">
+                        <label for="validationTooltip01" class="form-label">Card #</label>
+                        <input type="number" class="form-control" id="cardinput" value="" maxlength="16" />
+
                     </div>
-                     <div class="col-md-4">
-                        <label for="inputPassword4" class="form-label">Amount</label>
-                        <input type="number" class="form-control" id="inputPassword4" name="amount" placeholder="Amount">
+                    <div class="col-md-4 position-relative">
+                        <label for="validationTooltip01" class="form-label">CVC #</label>
+                        <input type="text" class="form-control" id="cvcinput" value="" maxlength="3"
+                           >
+
                     </div>
-                    <div class="col-6">
-                        <label for="inputAddress" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="inputAddress" name="name">
+                    <div class="col-md-4 position-relative">
+
+                        <label for="validationTooltip01" class="form-label">Amount</label>
+                        <i class="fas fa-dollar-sign"></i>
+                        <input type="text" class="form-control" id="amountinput" value="" >
+
                     </div>
-                     <div class="col-6">
-                        <label for="inputAddress" class="form-label">Lastname</label>
-                        <input type="text" class="form-control" id="inputAddress" name="lastname">
+                    <!-- Segunda fila -->
+
+                    <div class="col-md-6 position-relative">
+                        <label for="validationTooltip01" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="nameinput" value=""  >
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" name="city" id="inputCity">
+                    <div class="col-md-6 position-relative">
+                        <label for="validationTooltip02" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastinput" value=""  >
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="inputState" class="form-label">State</label>
-                        <select id="inputState" class="form-select">
-                            <option selected>Choose...</option>
-                            <option>Heredia</option>
-                            <option>Limon</option>
-                            <option>Cartago</option>
+                    <!-- Tercera fila -->
+                    <div class="col-md-6 position-relative">
+                        <label for="validationTooltip03" class="form-label">City</label>
+                        <input type="text" class="form-control" id="cityinput" >
+                        <div class="invalid-tooltip">
+                            Please provide a valid city.
+                        </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                        <label for="validationTooltip04" class="form-label">State</label>
+                        <select class="form-select" id="stateinput">
+                            <option selected disabled value="">Pick a state</option>
+                            <option>Limón</option>
                             <option>San Jose</option>
+                            <option>Cartago</option>
                         </select>
+                        <div class="invalid-tooltip">
+                            Please select a valid state.
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="inputZip" class="form-label">Zip</label>
-                        <input type="number" class="form-control" name="zip" id="inputZip">
+                    <div class="col-md-3 position-relative">
+                        <label for="validationTooltip05" class="form-label">Postal Code</label>
+                        <input type="text" class="form-control" id="postainput" >
+                        <div class="invalid-tooltip">
+                            Please provide a valid zip.
+                        </div>
                     </div>
-            <!-- TERCER ROW -->
-            <div class="row mt-4">
-                <div class="col-6">
-                    <div class="bg-gris d-flex flex-row bd-highlight mb-3">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1"><i class="fab fa-cc-visa"></i></label>
+                    <!-- Metodo de pago y botones-->
+                    <div class="col-md-6 position-relative" id="radioinput">
+                        <label>We Accept:</label>
+                        <div class="bg-dark text-white">
+                            <div class="form-check form-check-inline ">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1"><i
+                                        class="fab fa-cc-mastercard"></i></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio1"><i
+                                        class="fab fa-cc-visa"></i></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option3">
+                                <label class="form-check-label" for="inlineRadio1"><i
+                                        class="fab fa-cc-mastercard"></i></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1"><i
+                                        class="fab fa-cc-mastercard"></i></label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2"><i class="fab fa-cc-mastercard"></i>
-
-                    </label>
+                    <!-- TextArea -->
+                    <div class="col-md-6 position-relative">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                        <label class="form-check-label" for="inlineRadio3"><i class="fab fa-cc-amex"></i></label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                        <label class="form-check-label" for="inlineRadio3"><i class="fab fa-cc-apple-pay"></i></label>
-                    </div>
-
-                    </div>
-
-                </div>
-                <div class="col-6">
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                            style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Comments</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 d-flex justify-content-end card-header">
-                        <button type="submit" class="botn btn btn-primary m-1">Cancel</button>
-                        <button type="submit" class="btn btn-primary m-1">Send</button>
-                    </div>
+                    <div class="col-12">
+                        <div class="card-header">
+                            <input type="submit" class="btn btn-dark" id="bot" />
+                            <button type="button" class="btn btn-dark float-right" id="but">Cancel</button>
+                        </div>
                     </div>
                 </form>
+
             </div>
+
+
         </div>
+
     </div>
-    <script src="index.js"></script>
+
+
+
+
+    <script src="https://kit.fontawesome.com/f879add62b.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="index.js"></script>
+
 </body>
+
 </html>

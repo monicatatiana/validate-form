@@ -1,11 +1,12 @@
-.bg-gris {
-    background-color: rgba(145, 212, 207, 0.952); 
-    padding: 2px;
+  
+#radio{
+    padding-right: 10%;
 }
-
-.botn {
-    background-color: gray;
-    padding: 2px;
-    border-color: gray;
+#bot{
+    margin-left: 4%;
+}
+#but{
+    margin-right: 6%;
+    float: right;
 }
 
